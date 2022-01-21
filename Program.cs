@@ -4,9 +4,9 @@ using MimeKit;
 
 var mailMessage = new MimeMessage();
 
-mailMessage.From.Add(new MailboxAddress("Fernando Lerma", "flerma@holati.mx"));
+mailMessage.From.Add(new MailboxAddress("from name", "from email"));
 
-mailMessage.To.Add(new MailboxAddress("Ernesto", "dieguez8@gmail.com"));
+mailMessage.To.Add(new MailboxAddress("to name", "to email"));
 
 mailMessage.Subject = "subject";
 
@@ -22,9 +22,9 @@ using (var smtpClient = new SmtpClient())
 
 {
 
-    smtpClient.Connect("mail.holati.mx", 465, true);
+    smtpClient.Connect("smtp.gmail.com", 587, true);
 
-    smtpClient.Authenticate("flerma@holati.mx", "zR}_q8_][FtJd6LS_");
+    smtpClient.Authenticate("user", "password");
 
     smtpClient.Send(mailMessage);
 
